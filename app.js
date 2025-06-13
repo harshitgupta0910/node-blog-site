@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser')
 
 mongoose.connect(process.env.MONGO_URL)
 .then((e)=> console.log("MongoDB Connected"))
+.catch(err => console.log(err));
 
 const Blog = require('./models/blog')
 
@@ -16,7 +17,7 @@ const blogRoute = require('./routes/blog')
  
 const { checkForAuthenticationCookie } = require('./middlewares/authentication');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 app.set("view engine","ejs")
 app.set("views", path.resolve( "views"));
